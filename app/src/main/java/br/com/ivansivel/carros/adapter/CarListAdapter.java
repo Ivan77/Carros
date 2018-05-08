@@ -10,14 +10,17 @@ import java.util.List;
 
 import br.com.ivansivel.carros.R;
 import br.com.ivansivel.carros.entities.Car;
+import br.com.ivansivel.carros.listener.OnListClickInteractionListener;
 import br.com.ivansivel.carros.viewholder.CarViewHolder;
 
 public class CarListAdapter extends RecyclerView.Adapter<CarViewHolder>{
 
     private List<Car> mListCars;
+    private OnListClickInteractionListener mOnListClickInteractionListener;
 
-    public CarListAdapter(List<Car> cars) {
+    public CarListAdapter(List<Car> cars, OnListClickInteractionListener listener) {
         this.mListCars = cars;
+        this.mOnListClickInteractionListener = listener;
     }
 
     @Override
@@ -34,7 +37,7 @@ public class CarListAdapter extends RecyclerView.Adapter<CarViewHolder>{
     public void onBindViewHolder(CarViewHolder holder, int position) {
         Car car = this.mListCars.get(position);
 
-        holder.bindData(car);
+        holder.bindData(car, this.mOnListClickInteractionListener);
     }
 
     @Override
