@@ -13,7 +13,7 @@ public class CarMock {
         this.mListCars = new ArrayList<>();
 
         for(int i=0; i <= 100; i++) {
-            this.mListCars.add(new Car(i, String.valueOf(i), i + 10, Double.valueOf(i * 100)));
+            this.mListCars.add(new Car(i, String.valueOf(i), i * 10, Double.valueOf(i * 100)));
         }
     }
 
